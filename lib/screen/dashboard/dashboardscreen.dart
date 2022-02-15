@@ -295,12 +295,12 @@ class _ItemsState extends State<Items> {
                           child: Row(
                             children: [
                               Text(isVisible
-                                  ? 'Read Less'
+                                  ? ''
                                   : 'More Information'),
                               Icon(
                                 isVisible
-                                    ? Icons.arrow_downward
-                                    : Icons.arrow_upward,
+                                    ? Icons.arrow_upward
+                                    : Icons.arrow_downward,
                                 color: Colors.grey,
                               ),
                             ],
@@ -315,7 +315,8 @@ class _ItemsState extends State<Items> {
 
                           child: Column(
                             children: [
-                              
+
+
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children:const [
@@ -334,6 +335,28 @@ class _ItemsState extends State<Items> {
                                   ' luxury development in Magodo estate. '
                                   'The apartment extends to approx. 1457 '
                                   'sqft & benefits from two large living rooms.'),
+
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    isVisible = !isVisible;
+                                  });
+                                },
+                                child: Row(
+                                  children: [
+                                    Text(isVisible
+                                        ? 'Read Less'
+                                        : ''),
+                                    Icon(
+                                      isVisible
+                                          ? Icons.arrow_upward
+                                          : Icons.arrow_downward,
+                                      color: Colors.grey,
+                                    ),
+                                  ],
+                                ),
+
+                              ),
                             ],
                           ),
                         ),
