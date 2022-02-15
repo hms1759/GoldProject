@@ -292,6 +292,7 @@ class _ItemsState extends State<Items> {
                               isVisible = !isVisible;
                             });
                           },
+
                           child: Row(
                             children: [
                               Text(isVisible
