@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:goldproject/screen/shared/attribute.dart';
 import 'package:goldproject/screen/shared/color.dart';
+import 'package:goldproject/screen/shared/locationmap.dart';
 
 class DashBoardScreen extends StatelessWidget {
   const DashBoardScreen({Key? key}) : super(key: key);
@@ -297,7 +299,7 @@ class _ItemsState extends State<Items> {
                             children: [
                               Text(isVisible
                                   ? ''
-                                  : 'More Information'),
+                                  : 'More Information',style:TextStyle( decoration: TextDecoration.underline)),
                               Icon(
                                 isVisible
                                     ? Icons.arrow_upward
@@ -316,8 +318,15 @@ class _ItemsState extends State<Items> {
 
                           child: Column(
                             children: [
+                              Container(
+                                width: 371,
+                                height: 234,
 
+                                //child : SvgPicture.asset('assets/Map.svg', width : 371, ),
+                                //  child: Center(child: MapLocation())
+                              ),
 
+                              const SizedBox(height: 20,),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children:const [
@@ -330,34 +339,58 @@ class _ItemsState extends State<Items> {
                                 ],
                               ),
 
-                              const SizedBox(height: 5,),
+                              const SizedBox(height: 10,),
                              const Text('A stunning three bedroom, '
                                   'two bathroom apartment set within a'
                                   ' luxury development in Magodo estate. '
                                   'The apartment extends to approx. 1457 '
-                                  'sqft & benefits from two large living rooms.'),
+                                  'sqft & benefits from two large living rooms.', style: TextStyle(fontSize: 12),),
 
-                              InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    isVisible = !isVisible;
-                                  });
-                                },
-                                child: Row(
-                                  children: [
-                                    Text(isVisible
-                                        ? 'Read Less'
-                                        : ''),
-                                    Icon(
-                                      isVisible
-                                          ? Icons.arrow_upward
-                                          : Icons.arrow_downward,
-                                      color: Colors.grey,
+                              const SizedBox(height: 25,),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        isVisible = !isVisible;
+                                      });
+                                    },
+                                    child: Row(
+                                      children: [
+                                        Text(isVisible
+                                            ? 'Read Less'
+                                            : ''),
+                                        Icon(
+                                          isVisible
+                                              ? Icons.arrow_upward
+                                              : Icons.arrow_downward,
+                                          color: Colors.grey,
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
 
+                                  ),
+                                ],
                               ),
+
+                              const SizedBox(height: 25,),
+                              Container(
+                                decoration: const BoxDecoration(
+                                  color: Colors.deepPurple, // Set border width
+                                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                ),
+                                padding: const EdgeInsets.symmetric(vertical: 15.0),
+                                width: double.infinity,
+                                child: const Text(
+                                  'Contact Property',
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                    color: Colors.white,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              )
                             ],
                           ),
                         ),
