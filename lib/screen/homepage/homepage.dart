@@ -11,8 +11,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String dropdownValue = 'To rent';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius:
                                     const BorderRadius.all(Radius.circular(8))),
                             child:
-                            /*DropdownButton<String>(
+                                /*DropdownButton<String>(
                               value: dropdownValue,
                               icon: const Icon(Icons.arrow_downward),
                               elevation: 16,
@@ -86,16 +84,103 @@ class _HomePageState extends State<HomePage> {
                                 );
                               }).toList(),
                             )*/
-                         InkWell(
-                              onTap:(){},
-                              child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: const [
-                                    Text('To rent'),
-                                    Icon(Icons.arrow_drop_down_outlined)
-                                  ]),
-                            ),
+                                InkWell(
+                              onTap: () {
+                                showModalBottomSheet<void>(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return Container(
+                                        height: 235,
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: <Widget>[
+                                            Container(
+                                              padding:const EdgeInsets.symmetric(horizontal: 20, vertical:12 ),
+                                              color: Colors.grey.shade200,
+
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+
+                                                children: [
+                                                  InkWell(
+                                                    child: Text('Cancel', style: TextStyle(fontSize: 18, color: Colors.blue),),
+
+                                                      onTap: () {
+                                                        Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                                builder: (context) => const HomePage()));
+
+                                                    },
+                                                  ),
+
+                                                  InkWell(
+                                                    child: Text('Confirm',style: TextStyle(fontSize: 18, color: Colors.blue),),
+                                                    onTap: (){
+
+                                                    },
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                                child :InkWell
+                                                  (
+                                                    child : Text('For Sale',style: TextStyle(fontSize: 18,), textAlign:TextAlign.center ),
+                                                    onTap: (){
+
+                                                    })
+                                            ),  Container(
+                                                child :InkWell
+                                                  (
+                                                    child : Text('To rent',style: TextStyle(fontSize: 18,), textAlign:TextAlign.center ),
+                                                    onTap: (){
+
+                                                    })
+                                            ),  Container(
+                                                child :InkWell
+                                                  (
+                                                    child : Text('New Homw',style: TextStyle(fontSize: 18,), textAlign:TextAlign.center ),
+                                                    onTap: (){
+
+                                                    })
+                                            ),
+                                            Container(
+                                                child :InkWell
+                                                  (
+                                                    child : Text('Commercial',style: TextStyle(fontSize: 18,), textAlign:TextAlign.center ),
+                                                    onTap: (){
+
+                                                    })
+                                            ),
+                                            const Text('Modal BottomSheet'),
+                                            ElevatedButton(
+                                              child: const Text(
+                                                  'Close BottomSheet'),
+                                              onPressed: () =>
+                                                  Navigator.pop(context),
+                                            )
+                                          ],
+                                        ),
+                                      );
+                                    });
+                              },
+
+                                    child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.end,
+                                        children: const [
+                                          Text('To rent'),
+                                          Icon(Icons.arrow_drop_down_outlined)
+                                        ])
+
+
+
+
+                                ),
                           ),
                         ),
                         Expanded(

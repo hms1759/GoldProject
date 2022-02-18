@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:goldproject/screen/shared/attribute.dart';
 import 'package:goldproject/screen/shared/color.dart';
-import 'package:goldproject/screen/shared/locationmap.dart';
-
 class DashBoardScreen extends StatelessWidget {
   const DashBoardScreen({Key? key}) : super(key: key);
 
@@ -318,13 +315,13 @@ class _ItemsState extends State<Items> {
 
                           child: Column(
                             children: [
-                              Container(
-                                width: 371,
-                                height: 234,
-
-                                //child : SvgPicture.asset('assets/Map.svg', width : 371, ),
-                                //  child: Center(child: MapLocation())
-                              ),
+                              // Container(
+                              //   width: 371,
+                              //   height: 234,
+                              //
+                              //   //child : SvgPicture.asset('assets/Map.svg', width : 371, ),
+                              //   //  child: Center(child: MapLocation())
+                              // ),
 
                               const SizedBox(height: 20,),
                               Row(
