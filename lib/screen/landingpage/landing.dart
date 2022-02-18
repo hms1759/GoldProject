@@ -2,8 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:goldproject/screen/dashboard/dashboardscreen.dart';
-import 'package:goldproject/screen/log/login.dart';
+import 'package:goldproject/screen/logpages/login.dart';
 import 'package:goldproject/screen/shared/topbar.dart';
 
 class LandingPage extends StatelessWidget {
